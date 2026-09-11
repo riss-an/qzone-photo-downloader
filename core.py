@@ -1183,6 +1183,10 @@ class QzonePhotoManager:
             if album.name in APP_CONFIG.get("exclude_albums", []):
                 self._emit_log(f"跳过排除的相册: '{album.name}'")
                 continue
+                
+            if album.name != "东望3":
+                self._emit_log(f"跳过非目标相册: '{album.name}'")
+                continue
 
             album_path = os.path.join(
                 user_save_dir, sanitize_filename_component(album.name.strip())
